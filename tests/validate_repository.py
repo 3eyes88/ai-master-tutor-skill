@@ -65,6 +65,8 @@ def main() -> int:
     check("After two unsuccessful attempts" in skill_text, "anti-question-prison escalation is present", failures)
     check("Never infer mastery" in skill_text, "mastery-evidence guardrail is present", failures)
     check("Ground claims in the supplied source" in skill_text, "source-grounding guardrail is present", failures)
+    check("begin with an application or discrimination task" in skill_text, "stated application gaps bypass redundant definition checks", failures)
+    check("when teaching learning-science concepts themselves" in skill_text, "learning-science topics route to the evidence reference", failures)
     skill_entrypoints = sorted(ROOT.glob("skills/*/SKILL.md"))
     check(skill_entrypoints == [SKILL / "SKILL.md"], "one canonical Agent Skills entrypoint exists", failures)
     check(not (ROOT / "skill").exists(), "legacy singular skill directory is absent", failures)
@@ -78,6 +80,7 @@ def main() -> int:
         path.read_text(encoding="utf-8") for path in SKILL.rglob("*") if path.is_file()
     )
     check("[TODO" not in all_runtime_text, "runtime files contain no template placeholders", failures)
+    check("three uncontested independent sources" in all_runtime_text, "cognitive-load terminology guardrail is present", failures)
 
     yaml_text = (SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8")
     check('display_name: "AI Master Tutor"' in yaml_text, "UI display name is configured", failures)

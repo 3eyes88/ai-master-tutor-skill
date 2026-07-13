@@ -2,11 +2,11 @@
 
 Date: 2026-07-13
 
-Status: **Compatibility implementation passed; authenticated Claude Code generation pending**
+Status: **PASS**
 
 ## Outcome
 
-Version 0.2.0 migrates the repository to the standard Agent Skills layout and supports installation into both Codex and Claude Code from one canonical Skill. Static structure, host-specific installation, Codex validation, and tutoring behavior regression tests passed. The final authenticated Claude Code response test could not run because the local Claude CLI was not logged in.
+Version 0.2.0 migrates the repository to the standard Agent Skills layout and supports installation into both Codex and Claude Code from one canonical Skill. Static structure, host-specific installation, Codex validation, tutoring behavior regression, Claude Code direct invocation, and Claude Code automatic invocation all passed after one test-driven revision.
 
 ## Official requirements checked
 
@@ -70,17 +70,31 @@ Three fresh isolated agent instances loaded the migrated canonical Skill and han
 
 Result: 3/3 pass with no critical rubric failure. Raw traces are in `tests/forward-test-transcripts-v0.2.0.md`.
 
-### T5 — Authenticated Claude Code generation
+### T5 — Authenticated Claude Code direct invocation
 
 Claude Code version detected: `2.1.198`.
 
-The direct invocation attempt returned:
+The final direct invocation used:
 
 ```text
-Not logged in · Please run /login
+/ai-master-tutor Teach me opportunity cost. I know the definition but cannot apply it.
 ```
 
-Result: blocked by external authentication. The test must be repeated after running `/login` in Claude Code. No claim of an authenticated Claude-generated response is made in this report.
+Result: pass. Claude Code resolved the slash command, skipped the redundant definition check, and presented an application case with one focused question.
+
+### T6 — Authenticated Claude Code automatic invocation
+
+The final natural-language prompt used:
+
+```text
+Tutor me through cognitive load theory. I think good teaching should remove all difficulty.
+```
+
+Result: pass. Claude Code automatically discovered the Skill, loaded the learning-science reference, and began with one concise diagnostic question.
+
+### Test-driven revision
+
+The first authenticated run exposed two quality issues: a redundant definition check after the learner reported an application gap, and an automatic response that became a long lecture using the contested three-load model as settled terminology. The Skill was revised to strengthen its trigger description, route application gaps directly to application tasks, and load the evidence reference when teaching learning-science concepts. Both Claude tests then passed.
 
 ## Compatibility changes
 
@@ -91,6 +105,6 @@ Result: blocked by external authentication. The test must be repeated after runn
 5. Added six platform compatibility scenarios and deterministic repository checks.
 6. Preserved one shared `SKILL.md` and reference set to prevent platform drift.
 
-## Remaining release gate
+## Release decision
 
-Run one authenticated Claude Code direct invocation and one natural-language automatic invocation. If both follow the tutoring contract, mark the compatibility report fully passed and release `v0.2.0`.
+All v0.2.0 compatibility gates passed. The version is ready to merge, tag, install from the GitHub release, and publish.

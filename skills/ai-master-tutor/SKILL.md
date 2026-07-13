@@ -1,6 +1,6 @@
 ---
 name: ai-master-tutor
-description: Run adaptive, source-grounded one-to-one tutoring based on learning science. Use when a learner asks to be taught, coached, quizzed, or guided through a paper, book, concept, course topic, problem-solving method, or review session; when they want Socratic tutoring, misconception repair, practice, mastery assessment, or a spaced-review plan. Diagnose prior knowledge, teach in manageable steps, elicit active attempts, scaffold and fade support, give targeted feedback, and verify learning through explanation, application, and transfer. Do not trigger merely to answer a factual question or produce a summary when the user has not asked to learn.
+description: Adaptive one-to-one tutor grounded in learning science. Use whenever the user asks to learn, be taught, tutored, coached, quizzed, tested for mastery, or guided through a paper, book, concept, problem, course topic, or review. Also use for Socratic tutoring, misconception repair, practice, transfer, and study planning. Diagnose only what is unknown, keep turns focused, elicit one meaningful attempt, explain missing prerequisites, increase support after errors, give targeted feedback, and verify learning through application. Do not use for a simple factual answer or summary without learning intent.
 ---
 
 # AI Master Tutor
@@ -27,7 +27,8 @@ Tutor for learning, not merely answer delivery. Preserve the learner's thinking 
 3. If the learner says “start from zero,” accept that placement and begin with prerequisites.
 4. Otherwise, use one to three brief diagnostic prompts that sample prerequisites or the target skill.
 5. Skip redundant diagnosis when the conversation already demonstrates the learner's level.
-6. Form an internal concept map: target, prerequisites, likely misconceptions, examples, practice, and mastery evidence.
+6. If the learner explicitly says they know the definition but cannot apply it, begin with an application or discrimination task. Do not test the definition first.
+7. Form an internal concept map: target, prerequisites, likely misconceptions, examples, practice, and mastery evidence.
 
 State a compact session target when useful: “By the end, you will be able to ___ without ___.” Do not front-load a long syllabus.
 
@@ -149,4 +150,4 @@ If the learner cannot answer the final retrieval, treat that as diagnostic evide
 - Read [intervention-ladder.md](references/intervention-ladder.md) for misconceptions, repeated errors, frustration, or stalled sessions.
 - Read [mastery-and-review.md](references/mastery-and-review.md) for quizzes, mastery judgments, review plans, or cross-session handoffs.
 - Read [interaction-patterns.md](references/interaction-patterns.md) when calibrating turn length, direct teaching, or Socratic questioning.
-- Read [learning-science-basis.md](references/learning-science-basis.md) only when auditing, explaining, or modifying the pedagogical design.
+- Read [learning-science-basis.md](references/learning-science-basis.md) when teaching learning-science concepts themselves, or when auditing, explaining, or modifying the pedagogical design.

@@ -8,6 +8,9 @@
 - Add GitHub CLI installation and update commands for Codex and Claude Code.
 - Add deterministic cross-platform layout checks and real Claude Code forward tests.
 - Keep one shared `SKILL.md` and reference set for both platforms.
+- Strengthen natural-language invocation in Claude Code.
+- Skip definition checks when a learner explicitly reports an application gap.
+- Treat germane cognitive load as a debated/refined category rather than settled independent load.
 
 ## 0.1.0 — 2026-07-13
 

@@ -51,18 +51,50 @@ Tutor:
 
 Result: pass. The response answered immediately, included important limits, and did not append a compulsory question.
 
-## Claude Code runtime attempt
+## Claude Code authenticated runtime tests
 
-Command surface:
+### Initial authenticated findings
+
+The first explicit invocation resolved the Skill but redundantly asked the learner to restate a definition they had said they already knew. The first automatic invocation produced a long lecture and presented germane cognitive load as an uncontested third independent type.
+
+These observations caused three changes before retesting:
+
+1. shorten and strengthen the automatic invocation description;
+2. require an application task when the learner explicitly reports “I know the definition but cannot apply it”;
+3. route learning-science topics to the evidence reference and mark the status of germane load as contested/refined.
+
+### Final direct invocation
+
+Command:
 
 ```text
 /ai-master-tutor Teach me opportunity cost. I know the definition but cannot apply it.
 ```
 
-Claude Code result:
+Claude Code:
+
+> **Session target:** By the end, you'll be able to identify the real opportunity cost in a decision—even when the cost isn't obvious or feels like it's “free.”
+>
+> Here's the scenario:
+>
+> You have a free Saturday. You can either: (A) work a one-time freelance gig that pays $300, or (B) go hiking with friends, which you'd enjoy. You choose to go hiking.
+>
+> **What is your opportunity cost?** Don't define the term—just name what you actually gave up, and explain why that thing, rather than something else, counts as the cost.
+
+Result: pass. Claude Code resolved `/ai-master-tutor`, honored the stated application gap, and went directly to a representative case.
+
+### Final automatic invocation
+
+Prompt:
 
 ```text
-Not logged in · Please run /login
+Tutor me through cognitive load theory. I think good teaching should remove all difficulty.
 ```
 
-Result: externally blocked. Claude Code 2.1.198 was installed, and the Skill had already been discovered and installed at `.claude/skills/ai-master-tutor`, but generation could not begin without Claude authentication. This is not counted as a behavioral pass.
+Claude Code automatically discovered the Skill, loaded `references/learning-science-basis.md`, and responded:
+
+> I'd be happy to tutor you through cognitive load theory. Your statement is actually a *perfect* starting point — it's a very common and reasonable intuition that CLT directly addresses and complicates. Let's work through it.
+>
+> **What do you think would happen if learning had zero difficulty?** Take a moment — what does your gut say the result would be?
+
+Result: pass. The response used one focused diagnostic instead of a lecture and did not repeat the outdated three-load presentation.

@@ -19,6 +19,7 @@ Use this reference when auditing or modifying the skill, or when a user asks why
 - “Socratic” is a conversational strategy, not a reason to withhold prerequisites or direct explanations.
 - Desirable difficulty is not arbitrary difficulty. Add effort that strengthens retrieval, discrimination, or transfer; remove effort caused by confusing presentation.
 - Worked examples are especially useful for novices and can become redundant for experts.
+- Do not present intrinsic, extraneous, and germane load as three uncontested independent sources. The influential three-part model is historically important, but refined accounts treat germane resources as closely related to intrinsic load; explain the disagreement when the distinction matters.
 - A single successful session shows current performance, not long-term retention.
 - AI tutoring quality depends on source accuracy, content structure, feedback quality, and model reliability. A generic chatbot is not automatically an effective tutor.
 - A 2025 randomized crossover study in one Harvard introductory physics course found better short-term learning under a carefully engineered AI tutor than under the comparison active-learning lessons, but the authors explicitly did not claim universal superiority, particularly for complex synthesis and higher-order critical thinking.
@@ -31,5 +32,6 @@ Use this reference when auditing or modifying the skill, or when a user asks why
 4. Pashler, H., et al. (2007). *Organizing Instruction and Study to Improve Student Learning*. U.S. Department of Education, Institute of Education Sciences. https://ies.ed.gov/ncee/wwc/PracticeGuide/1
 5. Wood, D., Bruner, J. S., & Ross, G. (1976). “The role of tutoring in problem solving.” *Journal of Child Psychology and Psychiatry, 17*(2), 89–100. https://doi.org/10.1111/j.1469-7610.1976.tb00381.x
 6. Shute, V. J. (2008). “Focus on formative feedback.” *Review of Educational Research, 78*(1), 153–189. https://doi.org/10.3102/0034654307313795
+7. Sweller, J. (2010). “Element Interactivity and Intrinsic, Extraneous, and Germane Cognitive Load.” *Educational Psychology Review, 22*, 123–138. https://doi.org/10.1007/s10648-010-9128-5
 
 Treat this list as a foundation, not a claim of completeness. Recheck the literature when making broad effectiveness claims or adapting the protocol to high-stakes populations.
