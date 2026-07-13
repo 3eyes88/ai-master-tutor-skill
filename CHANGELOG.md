@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0 — 2026-07-13
+
+- Add an adaptive ICAP controller that selects and shifts Passive, Active, Constructive, and Interactive modes from learner evidence.
+- Replace the generic lesson loop with Diagnose → Minimal Teach → Retrieve → Construct → Challenge → Reconstruct → Verify → Reflect → Review.
+- Add a session-local learner state model for goals, prior knowledge, misconceptions, scaffolding, mastery evidence, transfer, and review.
+- Define strict Interactive criteria so ordinary question-answering or long conversations are not mislabeled.
+- Expand error diagnosis to nine classes with minimum-hint, retry, graded-scaffolding, and regeneration rules.
+- Require two constructive learner products, response-specific challenges, surface-different transfer, metacognitive reflection, and concise spaced retrieval.
+- Add eight acceptance scenarios for novices, experts, direct answers, confident misconceptions, overload, passive listening, and genuine interaction.
+- Strengthen deterministic validation and cross-platform compatibility checks while preserving `$ai-master-tutor` and `/ai-master-tutor`.
+
 ## 0.2.0 — 2026-07-13
 
 - Adopt the standard `skills/ai-master-tutor/` repository layout.
