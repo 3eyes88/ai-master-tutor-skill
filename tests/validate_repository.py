@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skill" / "ai-master-tutor"
+SKILL = ROOT / "skills" / "ai-master-tutor"
 
 
 def check(condition: bool, message: str, failures: list[str]) -> None:
@@ -24,6 +24,7 @@ def main() -> int:
     failures: list[str] = []
     required = [
         ROOT / "README.md",
+        ROOT / "CHANGELOG.md",
         ROOT / "LICENSE",
         ROOT / "VERSION",
         SKILL / "SKILL.md",
@@ -36,7 +37,10 @@ def main() -> int:
         ROOT / "tests" / "scenarios.md",
         ROOT / "tests" / "evaluation-rubric.md",
         ROOT / "tests" / "forward-test-transcripts-v0.1.0.md",
+        ROOT / "tests" / "forward-test-transcripts-v0.2.0.md",
+        ROOT / "tests" / "platform-compatibility.md",
         ROOT / "docs" / "test-report-v0.1.0.md",
+        ROOT / "docs" / "test-report-v0.2.0.md",
     ]
     for path in required:
         check(path.is_file(), f"required file: {path.relative_to(ROOT)}", failures)
@@ -61,6 +65,9 @@ def main() -> int:
     check("After two unsuccessful attempts" in skill_text, "anti-question-prison escalation is present", failures)
     check("Never infer mastery" in skill_text, "mastery-evidence guardrail is present", failures)
     check("Ground claims in the supplied source" in skill_text, "source-grounding guardrail is present", failures)
+    skill_entrypoints = sorted(ROOT.glob("skills/*/SKILL.md"))
+    check(skill_entrypoints == [SKILL / "SKILL.md"], "one canonical Agent Skills entrypoint exists", failures)
+    check(not (ROOT / "skill").exists(), "legacy singular skill directory is absent", failures)
 
     reference_links = re.findall(r"\]\((references/[^)]+)\)", skill_text)
     check(len(reference_links) >= 5, "SKILL.md routes to conditional references", failures)
@@ -76,10 +83,18 @@ def main() -> int:
     check('display_name: "AI Master Tutor"' in yaml_text, "UI display name is configured", failures)
     check("$ai-master-tutor" in yaml_text, "default prompt explicitly invokes the skill", failures)
 
+    readme_text = (ROOT / "README.md").read_text(encoding="utf-8")
+    check("--agent codex --scope user" in readme_text, "README documents Codex installation", failures)
+    check("--agent claude-code --scope user" in readme_text, "README documents Claude Code installation", failures)
+    check("$ai-master-tutor" in readme_text, "README documents Codex invocation", failures)
+    check("/ai-master-tutor" in readme_text, "README documents Claude Code invocation", failures)
+
     version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-    check(version == "0.1.0", "repository version is 0.1.0", failures)
+    check(version == "0.2.0", "repository version is 0.2.0", failures)
     scenarios = (ROOT / "tests" / "scenarios.md").read_text(encoding="utf-8")
     check(len(re.findall(r"^## S\d+", scenarios, re.MULTILINE)) >= 10, "at least 10 forward-test scenarios exist", failures)
+    platform_scenarios = (ROOT / "tests" / "platform-compatibility.md").read_text(encoding="utf-8")
+    check(len(re.findall(r"^## P\d+", platform_scenarios, re.MULTILINE)) >= 6, "at least 6 platform scenarios exist", failures)
 
     print()
     if failures:
