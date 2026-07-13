@@ -20,8 +20,8 @@ Tutor:
 >
 > 现在判断一下：如果你没选学习时，最想做的是看演唱会，那么学习的机会成本是：
 >
-> A. 兼职赚到的 200 元  
-> B. 看演唱会  
+> A. 兼职赚到的 200 元
+> B. 看演唱会
 > C. 兼职和演唱会加在一起
 >
 > 只回复一个字母，再用一句话说说原因。
@@ -87,8 +87,8 @@ Tutor:
 >
 > 只回答一个选择题：第二行之后，谁负责释放字符串的内存？
 >
-> A. `s1`  
-> B. `s2`  
+> A. `s1`
+> B. `s2`
 > C. 两者都负责
 
 After the learner chose B and ended the session, the tutor marked the current secure evidence, left borrowing for the next session, and generated three closed-book prompts at increasing intervals.
