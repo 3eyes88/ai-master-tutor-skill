@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "economics-foundations",
+  "title": "Economics Foundations",
+  "status": "verified",
+  "sources": [
+    {
+      "title": "Instructor-provided course notes",
+      "locator": "notes.pdf"
+    }
+  ],
+  "course_outcome": {
+    "action": "Analyze constrained choices using core economic concepts.",
+    "conditions": "Without notes",
+    "success_criterion": "Correct analysis of three varied cases."
+  },
+  "concepts": [
+    {
+      "concept_id": "opportunity-cost",
+      "title": "Opportunity cost",
+      "prerequisites": [],
+      "target_action": "Identify the highest-valued forgone alternative.",
+      "success_criterion": "Two varied cases with complete reasons.",
+      "source_locators": ["notes.pdf#page=3"],
+      "core_model": "The value of the next-best alternative forgone.",
+      "example": "Studying instead of the preferred paid shift.",
+      "non_example": "Adding the value of every rejected alternative.",
+      "misconceptions": ["The money-valued option is always the opportunity cost."],
+      "assessment_items": [
+        {
+          "item_id": "oc-independent-01",
+          "kind": "independent",
+          "prompt": "Choose between a concert, a shift, and studying; identify the opportunity cost.",
+          "answer_key": "The preferred next-best alternative, not all alternatives combined.",
+          "reasoning_criteria": ["Identifies the next-best forgone alternative."],
+          "verification_status": "checked"
+        }
+      ]
+    }
+  ],
+  "checkpoints": ["opportunity-cost"]
+}

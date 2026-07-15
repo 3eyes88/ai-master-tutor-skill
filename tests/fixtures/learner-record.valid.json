@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "learner_id": "fixture-learner",
+  "updated_at": "2026-07-15T14:00:00+08:00",
+  "preferences": {
+    "language": "zh-CN",
+    "default_mode": "guided",
+    "accessibility": [],
+    "notes": ""
+  },
+  "goals": [
+    {
+      "goal_id": "economics-foundations",
+      "outcome": "Identify and explain opportunity cost in unfamiliar choices.",
+      "application_context": "personal decisions",
+      "success_criterion": "Two independent surface-different cases with complete reasons.",
+      "status": "active"
+    }
+  ],
+  "concepts": {
+    "opportunity-cost": {
+      "prerequisites": [],
+      "highest_evidence_level": "transfer",
+      "review_status": "due"
+    }
+  },
+  "evidence": [
+    {
+      "concept_id": "opportunity-cost",
+      "observed_at": "2026-07-15T14:00:00+08:00",
+      "delay_since_teaching": "immediate",
+      "task_id": "oc-transfer-02",
+      "surface": "time-allocation",
+      "support_level": 0,
+      "result": "correct",
+      "reasoning_quality": "complete",
+      "evidence_level": "transfer",
+      "note": "Mapped the next-best alternative without a cue."
+    }
+  ],
+  "review_queue": [
+    {
+      "concept_id": "opportunity-cost",
+      "status": "due",
+      "prompt_id": "oc-delay-01"
+    }
+  ],
+  "next_step": "Run delayed retrieval before reteaching."
+}

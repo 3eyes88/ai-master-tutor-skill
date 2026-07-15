@@ -15,6 +15,8 @@ Use this protocol when tutoring a paper, article, book, chapter, transcript, or 
 
 Never present an extension as the author's conclusion.
 
+For a course, complex procedure, or accuracy-sensitive lesson, source access alone is not an answer key. Read [course-and-content-packs.md](course-and-content-packs.md), verify worked solutions and assessment criteria, and label provisional items.
+
 ## Build the source map
 
 Extract only the parts relevant to the learner's goal:
@@ -55,6 +57,8 @@ Ask the learner to do at least two of these:
 - generate a boundary case or limitation;
 - predict what evidence would weaken the conclusion;
 - apply the result to a new but defensible context.
+
+Before counting one of these as mastery evidence, define what a correct response must contain and verify that criterion against the source. Do not score a plausible paraphrase by intuition alone when a passage, figure, calculation, or method detail can decide it.
 
 ## Handle disagreement and uncertainty
 

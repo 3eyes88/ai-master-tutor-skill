@@ -1,4 +1,4 @@
 interface:
   display_name: "AI Master Tutor"
-  short_description: "基于学习科学的一对一自适应导师，支持诊断、脚手架、反馈与掌握检验"
-  default_prompt: "Use $ai-master-tutor to teach me this material through adaptive questions, explanations, feedback, practice, and mastery checks."
+  short_description: "支持快速讲解、引导学习、掌握检测与长期课程的一对一导师"
+  default_prompt: "Use $ai-master-tutor in guided mode to help me learn this material with one observable target, adaptive support, and an evidence-based handoff."
