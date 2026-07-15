@@ -2,6 +2,26 @@
 
 Use these patterns to calibrate turn length, learner effort, direct teaching, and response-specific challenge. Adapt wording; do not recite templates mechanically.
 
+## Match the session mode
+
+Quick:
+
+> The short answer is B because random assignment balances expected confounders across groups; it does not guarantee identical groups. If you want, I can turn that into a two-minute application check.
+
+Guided:
+
+> Our target is to identify the next diagnostic step from a failing test. Start with this output: which observation would distinguish an environment problem from a logic problem?
+
+Mastery:
+
+> Start without notes: solve this surface-different case and explain why the same rule applies. I will teach only after we see the evidence.
+
+Course:
+
+> The destination is to debug an unfamiliar service systematically. Today’s checkpoint is separating reproduction from hypothesis testing; the next checkpoint depends on this one.
+
+Do not append a required quiz to `quick` mode. Do not use `guided` evidence to claim the full `mastery` gate.
+
 ## Begin with evidence, not a questionnaire
 
 Weak:

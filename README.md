@@ -2,9 +2,11 @@
 
 **AI Master Tutor：基于学习科学的一对一自适应 AI 导师，支持 Codex 与 Claude Code。**
 
-它不是“换一种语气回答问题”的提示词，而是一套可复用的自适应教学协议：诊断先验知识、控制认知负荷、按 ICAP 动态换挡、引出检索与主动建构、针对学习者模型发起挑战、逐步纠偏，并用解释、边界、应用、迁移和元认知检验掌握。
+它不是“换一种语气回答问题”的提示词，而是一套分层教学系统：先判断用户需要快速解释、引导学习、掌握检测、复习还是长期课程，再用最小必要路径完成教学。复杂学习可配合课程内容包、经验证的答案键和用户授权的跨会话学习记录。
 
-当前版本：`v0.3.0`
+当前工作版本：`v0.4.0-rc.1`
+
+这是本地候选版本。完成独立前向测试、真人试用与发布检查前，不宣称其已经证明长期学习效果或已经作为 `v0.4.0` 正式发布。
 
 ## 它解决什么问题
 
@@ -20,11 +22,17 @@
 - 在没有读到原文时假装理解论文；
 - 给出看似精确、其实没有证据的掌握度百分比。
 
-本 Skill 把这些失败模式写成了明确的决策规则。最重要的一条是：**先诊断已有图式，再选择 P/A/C/I 起点；缺基础就教，能建构就挑战，失败就降档加脚手架，成功就撤提示并拉远迁移。**
+本 Skill 把这些失败模式写成了明确的决策规则。最重要的两条是：**先选择最轻的会话模式，再根据已有图式选择 P/A/C/I 活动；简单问题不强制走完整闭环，真正的掌握判断必须有独立、变化和延迟证据。**
 
 ## 安装
 
-推荐使用 GitHub CLI。标准 `skills/ai-master-tutor/` 布局可被 `gh skill` 自动发现，并为后续更新记录来源。
+候选版应从当前仓库本地安装，避免 GitHub 默认分支尚未发布对应版本时安装到旧版：
+
+```bash
+gh skill install . ai-master-tutor --from-local --agent codex --scope user --force
+```
+
+正式发布并合并到默认分支后，可使用远程安装。标准 `skills/ai-master-tutor/` 布局可被 `gh skill` 自动发现，并为后续更新记录来源。
 
 ### Codex
 
@@ -60,6 +68,18 @@ Claude Code 的个人 Skill 路径是 `~/.claude/skills/<skill-name>/SKILL.md`�
 ```
 
 ```text
+使用 $ai-master-tutor 的 quick 模式直接解释机会成本，不要测试我。
+```
+
+```text
+使用 $ai-master-tutor 的 mastery 模式检验我是否真正掌握贝叶斯定理。
+```
+
+```text
+使用 $ai-master-tutor 的 course 模式系统学习 Rust，并在得到我同意后保存学习记录。
+```
+
+```text
 Use $ai-master-tutor to test whether I truly understand this paper.
 ```
 
@@ -91,7 +111,9 @@ ai-master-tutor-skill/
 ├── skills/ai-master-tutor/    # 跨平台的标准 Agent Skill
 │   ├── SKILL.md
 │   ├── agents/openai.yaml     # Codex UI 元数据；Claude Code 会忽略
-│   └── references/            # ICAP 控制器、纠错、掌握、来源教学等
+│   ├── references/            # 模式、ICAP、纠错、掌握、课程与连续学习
+│   ├── assets/                # 学习记录与内容包 JSON 模板
+│   └── scripts/               # 学习工件校验器
 ├── tests/                     # 静态校验、情景测试与跨平台测试
 ├── docs/                      # 测试报告
 ├── CHANGELOG.md
@@ -104,30 +126,31 @@ Skill 本体不放 README、测试报告或发布记录，以减少运行时上�
 ## 设计原则
 
 ```text
-目标与先验知识诊断
+学习意图 → quick / guided / mastery / review / course
    ↓
-选择 P / A / C / I 起点
+可观察目标与成功标准
    ↓
-最小讲解 → 检索 → 两次主动建构
+根据先验知识选择 P / A / C / I 活动
    ↓
-针对学习者模型挑战 → 学习者重新建构
+按需讲解、检索、建构、挑战与重构
    ↓
-记得 / 理解 / 迁移验证
+当前表现验证；掌握模式执行完整证据门槛
    ↓
-元认知总结 → 2—5 个间隔检索题
+经授权保存证据 → 延迟检索 → 累积迁移
    ↓
-根据证据升档、降档或撤除脚手架
+更新下一检查点、支持级别与复习队列
 ```
 
-这套设计综合了认知负荷理论、ICAP、脚手架、范例学习、形成性反馈、提取练习、迁移、元认知和间隔复习。`Interactive` 只有在“学习者提出模型 → 导师针对性挑战 → 学习者修改 → 形成更有边界的共同模型”时才成立。研究依据及适用边界见 `skills/ai-master-tutor/references/learning-science-basis.md`。
+这套设计综合了认知负荷理论、ICAP、脚手架、范例学习、形成性反馈、提取练习、迁移、元认知和间隔复习。`Interactive` 只有在“学习者提出模型 → 导师针对性挑战 → 学习者修改 → 形成更有边界的共同模型”时才成立。长期学习还需要持久化证据、可靠内容结构和延迟测评，不能由提示词单独保证。研究依据及适用边界见 `skills/ai-master-tutor/references/learning-science-basis.md`。
 
 ## 测试
 
 ```bash
 python3 tests/validate_repository.py
+python3 skills/ai-master-tutor/scripts/validate_learning_artifacts.py --help
 ```
 
-情景评测规则见 `tests/evaluation-rubric.md`，通用测试用例见 `tests/scenarios.md`，跨平台测试见 `tests/platform-compatibility.md`，发布结果见 `docs/`。
+情景评测规则见 `tests/evaluation-rubric.md`，通用测试用例见 `tests/scenarios.md`，纵向评测见 `tests/longitudinal-evaluation.md`，跨平台测试见 `tests/platform-compatibility.md`，发布结果见 `docs/`。
 
 ## 许可
 

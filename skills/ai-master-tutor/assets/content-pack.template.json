@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "pack_id": "",
+  "title": "",
+  "status": "provisional",
+  "sources": [],
+  "course_outcome": {
+    "action": "",
+    "conditions": "",
+    "success_criterion": ""
+  },
+  "concepts": [
+    {
+      "concept_id": "",
+      "title": "",
+      "prerequisites": [],
+      "target_action": "",
+      "success_criterion": "",
+      "source_locators": [],
+      "core_model": "",
+      "example": "",
+      "non_example": "",
+      "misconceptions": [],
+      "assessment_items": [
+        {
+          "item_id": "",
+          "kind": "independent",
+          "prompt": "",
+          "answer_key": "",
+          "reasoning_criteria": [],
+          "verification_status": "unverified"
+        }
+      ]
+    }
+  ],
+  "checkpoints": []
+}

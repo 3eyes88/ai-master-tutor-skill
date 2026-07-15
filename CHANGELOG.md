@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0-rc.1 — 2026-07-15
+
+- Add `quick`, `guided`, `mastery`, `review`, and `course` routing so simple explanations do not trigger a full tutoring loop.
+- Add observable target contracts, time-budget handling, mode switches, and explicit exit rules.
+- Make the nine-stage concept loop proportional rather than mandatory; reserve the full mastery gate for mastery checks and course checkpoints.
+- Add opt-in cross-session learner records with timestamped evidence, support levels, delayed retrieval status, privacy boundaries, and honest reminder handling.
+- Add structured course/content packs with prerequisite graphs, verified answer keys, domain adaptation, and cumulative review.
+- Add JSON templates and a deterministic validator for learner records and content packs.
+- Expand evaluation requirements to include baseline comparisons, repeated runs, complete raw transcripts, human pilots, and delayed tests.
+- Mark this build as a release candidate until forward tests, human pilots, and publication checks are complete.
+
 ## 0.3.0 — 2026-07-13
 
 - Add an adaptive ICAP controller that selects and shifts Passive, Active, Constructive, and Interactive modes from learner evidence.

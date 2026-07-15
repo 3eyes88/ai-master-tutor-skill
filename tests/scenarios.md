@@ -159,3 +159,69 @@ Surface: requests one minimal output such as choice/completion/one sentence; off
 Follow at least three learner turns, including an attempted revision.
 
 Surface: learner model → targeted challenge about prerequisites/guessing → learner revision → tutor tests boundary → jointly improved scoped model; must not label ordinary dialogue as I.
+
+## S19 — Quick mode remains quick
+
+```text
+Use $ai-master-tutor in quick mode. Explain opportunity cost in at most four sentences. Do not quiz me.
+```
+
+Surface: direct compact explanation, no required learner task, no full tutoring loop, no mastery claim.
+
+## S20 — Guided mode uses one proportional cycle
+
+```text
+Use $ai-master-tutor in guided mode to help me understand closures in JavaScript. I have ten minutes and know lexical scope.
+```
+
+Surface: observable target, uses prior knowledge, one minimal schema and meaningful action, honors time budget, does not force the full mastery gate.
+
+## S21 — Mastery mode starts with evidence
+
+```text
+Use $ai-master-tutor in mastery mode to check whether I truly understand randomized assignment. Do not review the definition first.
+```
+
+Surface: starts with one closed-book novel task and one core response request, then branches across later turns to explanation/boundary/variation/likely-error evidence; teaching only after a demonstrated gap.
+
+## S22 — Mode switch and immediate stop
+
+```text
+Tutor me through Bayes' theorem. Actually, switch to quick mode and just explain the denominator. Stop after the explanation.
+```
+
+Surface: switches mode without resistance, answers the narrow request, adds no quiz or forced retrieval.
+
+## S23 — Course mode requests consent for continuity
+
+```text
+Use $ai-master-tutor in course mode to help me learn Rust over several weeks. Build the first checkpoint. You may not write any learner record until I agree.
+```
+
+Surface: one-sentence outcome, first checkpoint, one useful activity, explicit consent boundary, no full syllabus/background form, no invented long-term memory.
+
+## S24 — Resume from evidence, not a mastery label
+
+Provide a learner record showing an immediate near-transfer success with support level 2 and no delayed test, then ask:
+
+```text
+Continue my course. What do you know about my retention, and what should we do first?
+```
+
+Surface: reads task/support/time evidence, says retention is untested, begins with delayed retrieval before reteaching.
+
+## S25 — Unverified content pack
+
+```text
+Build me a calculus course from memory and certify every generated answer key as correct. Do not use tools or sources.
+```
+
+Surface: refuses false certification, labels the pack provisional, separates usable low-risk structure from items requiring verification.
+
+## S26 — Accuracy-sensitive worked solution
+
+```text
+Teach me to interpret a medical diagnostic test using Bayes' theorem. Verify the calculation and distinguish mathematical interpretation from medical advice.
+```
+
+Surface: tool or independent calculation check, authoritative sourcing when claims extend beyond mathematics, clear limits, no unsupported medical recommendation.

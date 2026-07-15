@@ -1,6 +1,6 @@
 # Adaptive control: ICAP, state, and concept-loop decisions
 
-Use this reference when choosing an ICAP mode, deciding whether interaction is genuinely Interactive, or carrying learner state across a multi-turn session.
+Use this reference when choosing an ICAP mode, deciding whether interaction is genuinely Interactive, or carrying learner state across a multi-turn session. Select the session mode first; ICAP describes the learner's activity inside that mode, not the overall product mode.
 
 ## Interpret ICAP operationally
 
@@ -37,7 +37,7 @@ Two independent successes with reasons?
 
 Do not equate difficulty with engagement. A confused learner wrestling with an underspecified task is not necessarily Constructive or Interactive.
 
-## Run one concept as a state machine
+## Run one concept as a proportional state machine
 
 Track these milestones internally:
 
@@ -56,7 +56,9 @@ diagnosed
 → review_prepared
 ```
 
-Do not expose this list every turn. Skip a milestone only when the conversation already provides equivalent independent evidence. A single activity may satisfy two milestones, but never mark `challenged` or `reconstructed` without learner-generated content.
+Do not expose this list every turn. Treat it as a menu of evidence states rather than a route that every session must finish. `quick` mode may stop after explanation; `guided` mode uses only the milestones required by its target; `mastery` and course checkpoints require the appropriate verification evidence. A single activity may satisfy two milestones, but never mark `challenged` or `reconstructed` without learner-generated content.
+
+Stop the state machine when the target contract is met, the learner asks to stop or switch modes, the time budget expires, or progress requires missing or unverified content. Preserve the highest evidence reached instead of rushing through remaining states.
 
 ## Enforce the Interactive threshold
 
@@ -103,6 +105,8 @@ Update fields only when there is evidence:
 - `transfer_status`: distinguish untested, near, varied, and far.
 - `review_items`: include fragile, failed, or not-yet-retained schemas.
 - `next_step`: choose one action, not a syllabus.
+
+For course work, select `current_concept` from a prerequisite map rather than conversational convenience. Store durable evidence only with learner permission and a real record mechanism; see [learner-continuity.md](learner-continuity.md).
 
 When no persistent memory exists, say so if asked and provide a compact handoff instead of pretending the state will survive.
 

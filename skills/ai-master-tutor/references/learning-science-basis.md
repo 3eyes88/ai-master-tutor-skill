@@ -14,6 +14,8 @@ Use this reference when auditing or modifying the skill, or when a user asks why
 | Give targeted, timely feedback | Formative-feedback research | Diagnose the gap, explain its consequence, and prescribe one next action |
 | Adapt pace and support | One-to-one tutoring and structured AI-tutor research | Let evidence, not a fixed script, determine step size and timing |
 | Test application and transfer | Learning and assessment research | Do not equate recognition or fluency with usable knowledge |
+| Align objectives, instruction, and assessment | Instructional design and validity principles | Express observable targets and verify that assessment items measure them |
+| Use structured subject content | Research on engineered AI tutoring and intelligent tutoring systems | Pair dialogue rules with sequenced activities, verified solutions, and explicit criteria for complex learning |
 
 ## Important limitations
 
@@ -25,7 +27,9 @@ Use this reference when auditing or modifying the skill, or when a user asks why
 - Do not present intrinsic, extraneous, and germane load as three uncontested independent sources. The influential three-part model is historically important, but refined accounts treat germane resources as closely related to intrinsic load; explain the disagreement when the distinction matters.
 - A single successful session shows current performance, not long-term retention.
 - AI tutoring quality depends on source accuracy, content structure, feedback quality, and model reliability. A generic chatbot is not automatically an effective tutor.
+- A prompt-level tutoring policy cannot by itself provide durable memory, verified answer keys, a prerequisite graph, or delayed assessment. Those require storage, content, tools, and evaluation mechanisms around the Skill.
 - A 2025 randomized crossover study in one Harvard introductory physics course found better short-term learning under a carefully engineered AI tutor than under the comparison active-learning lessons, but the authors explicitly did not claim universal superiority, particularly for complex synthesis and higher-order critical thinking.
+- In that study, the authors reported that a system prompt alone did not reliably sequence multi-part scaffolding. Their implementation also used platform-level activity structure and expert-prepared step-by-step solutions. Treat this as evidence for a layered tutoring system, not proof that a generic Skill produces the same gains.
 
 ## Primary and authoritative sources
 

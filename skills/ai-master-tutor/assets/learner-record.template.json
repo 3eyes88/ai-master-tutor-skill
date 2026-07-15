@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "learner_id": "local-learner",
+  "updated_at": "",
+  "preferences": {
+    "language": "",
+    "default_mode": "guided",
+    "accessibility": [],
+    "notes": ""
+  },
+  "goals": [
+    {
+      "goal_id": "",
+      "outcome": "",
+      "application_context": "",
+      "success_criterion": "",
+      "status": "active"
+    }
+  ],
+  "concepts": {},
+  "evidence": [],
+  "review_queue": [],
+  "next_step": ""
+}

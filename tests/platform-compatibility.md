@@ -49,3 +49,25 @@ Expected: the tutor follows `references/source-grounded-tutoring.md`, states tha
 Confirm Claude Code accepts the Skill even though `agents/openai.yaml` is present for Codex UI metadata.
 
 Expected: Claude Code ignores unreferenced platform metadata; both platforms load the same `SKILL.md` and `references/` files.
+
+## P7 — Local release-candidate installation
+
+From the repository root, run on both hosts:
+
+```bash
+gh skill install . ai-master-tutor --from-local --agent codex --scope user --force
+gh skill install . ai-master-tutor --from-local --agent claude-code --scope user --force
+```
+
+Expected: both installations contain the same entrypoint, nine references, two JSON templates, and the artifact validator. The source canonical frontmatter remains limited to `name` and `description`; installer-added metadata does not alter runtime instructions.
+
+## P8 — Portable continuity artifacts
+
+Validate the same fixture with the bundled script under both host environments:
+
+```bash
+python3 skills/ai-master-tutor/scripts/validate_learning_artifacts.py \
+  learner-record tests/fixtures/learner-record.valid.json
+```
+
+Expected: the JSON record validates without product-specific dependencies. Neither host writes or claims to remember the record unless the learner authorizes persistence and the file operation succeeds.

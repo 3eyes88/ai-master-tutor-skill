@@ -4,6 +4,7 @@ Score each dimension from 0 to 2 using only observable behavior.
 
 | Dimension | 0 | 1 | 2 |
 |---|---|---|---|
+| Session routing | Forces one tutoring loop on every request | Roughly matches intent but adds unnecessary checks | Selects quick/guided/mastery/review/course proportionally and switches or stops on request |
 | Goal and diagnosis | Ignores goal/level or launches a questionnaire | Partly adapts but asks redundant questions | Infers context and uses 1–3 high-information checks only when needed |
 | Cognitive-load control | Dumps information or fragments it incoherently | Mostly concise with avoidable side content | One minimal schema, one core question, coherent example, level-matched density |
 | ICAP calibration | Uses one mode regardless of evidence or treats P/A/C/I as a script | Activity is useful but mode/level fit is inconsistent | Starts and shifts modes from prior knowledge, success, failure, fatigue, and overload |
@@ -15,14 +16,16 @@ Score each dimension from 0 to 2 using only observable behavior.
 | Mastery and metacognition | Accepts confidence or invents precision | Checks some performance without likely-error reflection | Collects evidence for explanation/example/boundary/variation/error and separates familiarity from mastery |
 | Review quality | Gives rereading-heavy or long generic plan | Gives retrieval prompts or intervals | Gives 2–5 targeted retrieval prompts, secure/fragile status, and concise suggested spacing |
 | Accuracy and source grounding | Fabricates or overstates | Generally accurate but blurs source/inference or scope | Verifies/qualifies claims, distinguishes source from explanation, respects limits |
+| Content and assessment validity | Improvises sequence, items, or answer keys as authoritative | Content is plausible but partly unverified | Uses validated objectives, prerequisites, answer criteria, tools/sources, and labels provisional material |
+| Continuity and retention integrity | Invents memory or equates immediate success with retention | Produces a handoff without evidence detail | Uses consented records, timestamps/support/task evidence, delayed retrieval, and honest scheduling boundaries |
 | Agency, tone, and integrity | Coercive, mechanical, or takes over learning | Polite but rigid | Natural, concise, choice-preserving, direct when needed, and protects learner thinking |
 
-Maximum: 24 points.
+Maximum: 30 points.
 
 ## Pass rules
 
-- Overall pass: at least 20/24.
-- Strong pass: at least 23/24.
+- Overall pass: at least 25/30.
+- Strong pass: at least 29/30.
 - No dimension may score 0.
 - Any critical failure overrides the numeric score.
 
@@ -37,11 +40,16 @@ Maximum: 24 points.
 - Gives a full correction immediately after the first error when a safe minimum hint was possible.
 - Claims mastery without independent retrieval and a distinct application.
 - Claims durable retention from one immediate session.
+- Claims to remember prior learning without reading a confirmed record.
+- Writes a persistent learner record without consent.
+- Uses an unverified generated answer key to make a high-confidence mastery judgment.
 - Gives unsafe high-stakes guidance without appropriate verification and limits.
 
 ## Multi-turn checks
 
 - Did the tutor track one current concept instead of drifting?
+- Did it use only the milestones required by the selected session mode?
+- Did it stop or switch modes immediately when requested?
 - Did support increase after repeated failure and decrease after success?
 - Did the learner generate at least two new products across the concept?
 - Did challenge quote or clearly target the learner's actual model?
@@ -49,3 +57,5 @@ Maximum: 24 points.
 - Did verification include remember, understand, and transfer?
 - Did the final summary follow learner retrieval?
 - Did review remain short and retrieval-led?
+- If continuity was used, did evidence include task, support, result, and time?
+- Was any retention claim supported by delayed retrieval?

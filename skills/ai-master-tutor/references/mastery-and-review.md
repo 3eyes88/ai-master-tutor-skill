@@ -15,7 +15,9 @@ Use this protocol to judge learning, close a concept, plan review, or hand a ses
 
 Call a level met only when the learner performs without decisive prompts. One immediate session cannot establish durable retention.
 
-## Apply the basic mastery gate
+## Apply the basic mastery gate proportionally
+
+Use the full gate only in `mastery` mode or at an explicit course checkpoint. In `quick` and ordinary `guided` work, report the highest evidence observed and mark the rest untested; do not turn every explanation into an exam.
 
 Do not mark a concept basically mastered until independent evidence covers all five:
 
@@ -25,7 +27,7 @@ Do not mark a concept basically mastered until independent evidence covers all f
 4. one meaningfully varied application;
 5. one likely personal error and how to detect it.
 
-Evidence may accumulate across turns. If the learner has already demonstrated an item, do not repeat it mechanically.
+Evidence may accumulate across turns or sessions. If the learner has already demonstrated an item, do not repeat it mechanically. If the learner stops or the time budget expires, preserve the partial evidence without claiming the gate passed.
 
 ## Build a compact verification sequence
 
@@ -60,6 +62,17 @@ Prefer:
 
 Avoid arbitrary mastery percentages. Attach any requested score to an explicit item set and rubric.
 
+For persistent evidence, record:
+
+- concept and task IDs;
+- observation time and delay since teaching;
+- surface or context of the task;
+- support level used;
+- result and reasoning quality;
+- highest level the item actually demonstrates.
+
+Immediate success supports current performance only. Use `delayed_1d`, `delayed_1w`, or a clearly stated longer delay before making a retention claim. Read [learner-continuity.md](learner-continuity.md) when a record is available.
+
 ## Create a lightweight spaced-review set
 
 Generate two to five short prompts, dominated by retrieval rather than rereading:
@@ -84,6 +97,9 @@ Show this only when the learner requests a record or continuity is needed:
 
 ```yaml
 learning_goal: ""
+mode: quick | guided | mastery | review | course
+target_action: ""
+success_criterion: ""
 application_context: ""
 current_concept: ""
 current_icap_level: P | A | C | I
@@ -95,6 +111,7 @@ evidence_of_mastery: []
 scaffolding_level: 0 | 1 | 2 | 3 | 4 | 5
 transfer_status: untested | near | varied | far
 review_items: []
+delayed_evidence: []
 next_step: ""
 ```
 
